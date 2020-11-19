@@ -47,7 +47,7 @@ public class Parser {
                 args = tokens.toArray(new String[0]);
                 cmd.testArgs(args);
 
-                if(cmd.getClass().getName().intern() != VarDeclerationCommand.class.getName().intern()) {
+                if(cmd.getClass().getName().intern() != VarDecelerationCommand.class.getName().intern()) {
                     for(int i=1;i<tokens.size();i++) {
                         String varName = tokens.get(i);
                         if (Utilities.isSymbolExist(varName))
