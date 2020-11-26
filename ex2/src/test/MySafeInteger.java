@@ -22,27 +22,27 @@ public class MySafeInteger implements SafeInteger {
 
     @Override
     public SafeInteger increment() {
-        return atomicAction(()->this.value++);
+        return atomicAction(()->{this.value++;});
     }
 
     @Override
     public SafeInteger decrement() {
-        return atomicAction(()->this.value--);
+        return atomicAction(()->{this.value--;});
     }
 
     @Override
     public SafeInteger add(int add) {
-        return atomicAction(()->this.value+=add);
+        return atomicAction(()->{this.value+=add;});
     }
 
     @Override
     public SafeInteger pow(int pow) {
-        return atomicAction(()->this.value = (int)Math.pow(this.value, pow));
+        return atomicAction(()->{this.value = (int)Math.pow(this.value, pow);});
     }
 
     @Override
     public SafeInteger mul(int mul) {
-        return atomicAction(()->this.value *= mul);
+        return atomicAction(()->{this.value *= mul;});
     }
 
     @Override
@@ -58,7 +58,7 @@ public class MySafeInteger implements SafeInteger {
 
         try{
             this.wait();
-        } catch (InterruptedException e) {}
+        } catch (InterruptedException ignored) {}
         this.requestLock();
     }
 
