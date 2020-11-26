@@ -14,17 +14,17 @@ import java.util.Queue;
 
 public class Parser {
 
-    public static class ParsedDate{
+    public static class ParsedData{
         public Queue<Command> cmdQ = new LinkedList<>();
         public Queue<String[]> argsQ = new LinkedList();
         public List<String> errors = new LinkedList<>();
     }
 
-    public ParsedDate parse(String fileName, Lexer lexer) throws IOException {
+    public ParsedData parse(String fileName, Lexer lexer) throws IOException {
 
         int lineIndex = 0;
         BufferedReader fileInput = new BufferedReader(new FileReader(new File(fileName)));
-        ParsedDate parsedData = new ParsedDate();
+        ParsedData parsedData = new ParsedData();
 
         String line;
         Command cmd;
