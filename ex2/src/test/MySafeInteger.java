@@ -16,6 +16,7 @@ public class MySafeInteger implements SafeInteger {
     private SafeInteger atomicAction(Runnable r){
         this.requestLock();
         r.run();
+        new Thread(r).start();
         this.releaseLock();
         return this;
     }
